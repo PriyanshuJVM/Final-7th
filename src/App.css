@@ -1,4 +1,5 @@
 /* --- VOOK LMS ELITE: ARCHIVAL MANAGEMENT SYSTEM --- */
+/* Signature: Developed by PriyanshuBejJVM */
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700;900&family=Fraunces:ital,wght@1,700&display=swap');
 
 :root {
@@ -9,6 +10,30 @@
   --lms-bg: #f8fafc;
   --lms-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* --- THE DEVELOPER SIGNATURE (New Section) --- */
+body::after {
+  content: "DEVELOPED BY PRIYANSHUBEJJVM";
+  position: fixed;
+  bottom: 40px;
+  right: -60px;
+  transform: rotate(-90deg);
+  font-family: 'Public Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: var(--lms-black);
+  opacity: 0.3;
+  z-index: 1000;
+  pointer-events: none;
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+body:hover::after {
+  opacity: 1;
+  color: var(--lms-red);
+  right: -50px; /* Subtle kinetic slide */
 }
 
 /* --- Layout Architecture --- */
@@ -37,7 +62,7 @@ body {
 
 /* Industrial LMS ID Tag (Moveable Corner Decor) */
 .home-container::before {
-  content: "CORE_LMS_MODULE_01";
+  content: "CORE_LMS_MODULE_01 // PRIYANSHUBEJJVM";
   position: absolute;
   top: 0; right: 0;
   background: var(--lms-black);
