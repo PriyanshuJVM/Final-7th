@@ -71,7 +71,7 @@ const Home = () => {
     <div className="home-container">
       <header className="home-header">
         <h1>Welcome to <span>Vook</span></h1>
-        <p>Your personal book recommendation app.</p>
+        <p>Your personal book Management App</p>
       </header>
       
       <div className="button-group">
@@ -89,6 +89,10 @@ const Home = () => {
 
         <button className="btn btn-database" onClick={() => setState("DATABASE")}>
           <span className="icon">👁️</span> View Database
+        </button>
+
+        <button className="btn btn-read-ebook" onClick={() => setState("READ_EBOOK")}>
+          <span className="icon">📚</span> Read e-Book
         </button>
       </div>
     </div>

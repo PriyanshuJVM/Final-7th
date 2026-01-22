@@ -1,211 +1,168 @@
-/* --- VOOK LMS ELITE: UNIVERSAL ARCHIVAL SYSTEM --- */
+/* --- GRAND ARCHIVE LMS: CLASSIC EDITION --- */
 /* Signature: Developed by PriyanshuBejJVM */
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700;900&family=Fraunces:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
-  --lms-black: #0a0a0b;
-  --lms-white: #ffffff;
-  --lms-red: #d90429;
-  --lms-border: #e2e8f0;
-  --lms-bg: #f8fafc;
-  --lms-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --lib-mahogany: #2c1810;
+  --lib-gold: #c5a059;
+  --lib-parchment: #fdfcf0;
+  --lib-paper: #ffffff;
+  --lib-border: #e0d8c3;
+  --lib-accent: #8b0000; /* Deep Crimson */
+  --lib-shadow: 0 10px 30px rgba(44, 24, 16, 0.15);
   --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* --- THE DEVELOPER SIGNATURE --- */
-/* Responsive adjustment: Hidden on very small screens to prevent overlap */
+/* --- THE DEVELOPER SIGNATURE (Classic Quill Style) --- */
 @media (min-width: 1024px) {
   body::after {
-    content: "DEVELOPED BY PRIYANSHUBEJJVM";
+    content: "COLLECTION CURATED BY PRIYANSHUBEJJVM";
     position: fixed;
-    bottom: 40px;
-    right: -60px;
+    bottom: 60px;
+    right: -100px;
     transform: rotate(-90deg);
-    font-family: 'Public Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    color: var(--lms-black);
-    opacity: 0.3;
+    font-family: 'EB Garamond', serif;
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: var(--lib-mahogany);
+    opacity: 0.4;
     z-index: 1000;
-    pointer-events: none;
-    transition: all 0.5s var(--ease-out-expo);
-  }
-  body:hover::after {
-    opacity: 1;
-    color: var(--lms-red);
-    right: -50px;
   }
 }
 
-/* --- Layout Architecture --- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
+/* --- BASE STYLES --- */
 body {
-  background-color: var(--lms-bg);
-  color: var(--lms-black);
-  font-family: 'Public Sans', sans-serif;
-  line-height: 1.6;
-  padding: 20px 15px; /* Reduced padding for mobile */
+  background-color: #f4f1ea; 
+  background-image: radial-gradient(#dcd7cc 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--lib-mahogany);
+  font-family: 'EB Garamond', serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 20px;
 }
 
-@media (min-width: 768px) {
-  body { padding: 40px 20px; }
-}
-
-/* --- THE MAIN STATION --- */
-.home-container, .page-wrapper, .database-wrapper, .hoc-container, .remove-wrapper {
-  background: var(--lms-white);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px 20px; /* Fluid padding */
-  border-radius: 2px;
-  box-shadow: var(--lms-shadow);
-  border: 1px solid var(--lms-border);
+/* --- ARCHIVE CONTAINERS --- */
+.home-container, 
+.page-wrapper, 
+.database-wrapper, 
+.hoc-container {
+  background: var(--lib-paper);
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: var(--lib-shadow);
+  border: 1px solid var(--lib-border);
+  border-left: 15px solid var(--lib-mahogany); /* The "Classic Binding" Spine */
   position: relative;
-  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .home-container, .page-wrapper, .database-wrapper, .hoc-container, .remove-wrapper {
-    padding: 80px;
-  }
-}
-
-/* Industrial LMS ID Tag */
+/* Brass Library ID Tag (Pseudo-element) */
 .home-container::before {
-  content: "CORE_LMS // PRIYANSHUBEJJVM";
+  content: "CATALOG NO. " attr(data-id, "PB-JVM-2026");
   position: absolute;
-  top: 0; right: 0;
-  background: var(--lms-black);
-  color: white;
-  padding: 4px 8px;
-  font-size: 8px;
+  top: 20px; 
+  right: 20px;
+  border: 1px solid var(--lib-gold);
+  color: var(--lib-gold);
+  padding: 5px 15px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 1px;
+  font-family: 'Playfair Display', serif;
 }
 
 /* --- TYPOGRAPHY --- */
 h1 {
-  /* clamp(min, preferred, max) handles font scaling perfectly */
-  font-size: clamp(2rem, 8vw, 6rem);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  margin-bottom: 30px;
-  color: var(--lms-black);
-  border-left: 8px solid var(--lms-red);
-  padding-left: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--lib-mahogany);
+  border-bottom: 2px double var(--lib-gold);
+  padding-bottom: 20px;
 }
 
 h1 span {
-  font-family: 'Fraunces', serif;
   font-style: italic;
-  font-weight: 700;
-  color: var(--lms-red);
+  color: var(--lib-accent);
 }
 
-/* --- KINETIC ACTION CONTROLS --- */
+/* --- LEATHER-BOUND BUTTONS & NAVIGATION --- */
 .button-group {
   display: grid;
-  grid-template-columns: 1fr; /* Stacked on mobile */
-  gap: 1px;
-  background: var(--lms-border);
-  border: 1px solid var(--lms-border);
-  margin-top: 40px;
-}
-
-@media (min-width: 600px) {
-  .button-group { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 50px;
 }
 
 button {
   all: unset;
   cursor: pointer;
-  background: var(--lms-white);
+  background: var(--lib-parchment);
   padding: 20px;
+  border: 1px solid var(--lib-border);
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: var(--ease-out-expo) 0.4s;
-}
-
-@media (min-width: 768px) {
-  button { padding: 30px; }
+  font-size: 0.8rem;
+  text-align: center;
+  transition: 0.3s var(--ease-out-expo);
+  box-shadow: 2px 2px 0px var(--lib-gold);
 }
 
 button:hover {
-  background: var(--lms-black);
-  color: var(--lms-white);
+  background: var(--lib-mahogany);
+  color: var(--lib-gold);
+  transform: translateY(-3px);
+  box-shadow: 5px 5px 0px var(--lib-gold);
 }
 
-/* --- TABLE: ARCHIVAL DATA GRID --- */
-/* Makes table scrollable on mobile */
-.vook-table-container {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
+/* --- TABLE: LEDGER GRID --- */
 .vook-table {
   width: 100%;
-  min-width: 600px; /* Prevents crushing of data */
   border-collapse: collapse;
-  margin-top: 30px;
 }
 
 .vook-table th {
-  background: var(--lms-bg);
-  color: #64748b;
+  background: var(--lib-mahogany);
+  color: var(--lib-gold);
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+  padding: 15px;
   text-align: left;
-  padding: 12px;
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  border-bottom: 2px solid var(--lms-black);
 }
 
 .vook-table td {
-  padding: 16px 12px;
-  border-bottom: 1px solid var(--lms-border);
-  font-size: 0.95rem;
+  padding: 12px;
+  border-bottom: 1px solid var(--lib-border);
+  font-style: italic; /* Handwritten ledger aesthetic */
 }
 
-/* --- FORMS --- */
-.vook-form {
-  display: grid;
-  gap: 15px;
-  margin-top: 30px;
-}
-
+/* --- INPUTS & FORM ELEMENTS --- */
 input {
+  border: none;
+  border-bottom: 1px solid var(--lib-mahogany);
+  background: transparent;
+  border-radius: 0;
+  font-style: italic;
+  font-family: 'EB Garamond', serif;
+  padding: 10px 5px;
   width: 100%;
-  padding: 15px;
-  border: 1px solid var(--lms-border);
-  background: var(--lms-bg);
-  font-family: inherit;
-  font-size: 1rem;
-  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-/* --- KINETIC SCANNER --- */
-/* Optimized animation to avoid performance lag on mobile */
-.database-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 3px;
-  background: var(--lms-red);
-  animation: scanLMS 5s infinite var(--ease-out-expo);
-  z-index: 10;
-  will-change: transform;
+input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--lib-accent);
 }
 
-@keyframes scanLMS {
-  0% { transform: translateY(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(500px); opacity: 0; }
+/* --- UTILITY --- */
+#archive-id { /* Specific ID for potential targeting */
+  font-variant: small-caps;
+  color: var(--lib-gold);
 }
+
