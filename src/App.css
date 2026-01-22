@@ -1,144 +1,190 @@
+/* --- VOOK LMS ELITE: ARCHIVAL MANAGEMENT SYSTEM --- */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700;900&family=Fraunces:ital,wght@1,700&display=swap');
+
 :root {
-  --primary-bg: #f0f2f5;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --accent-color: #4f46e5;
-  --text-main: #1f2937;
-  --text-muted: #6b7280;
-  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  --border-radius: 16px;
-  --transition: all 0.3s ease;
+  --lms-black: #0a0a0b;
+  --lms-white: #ffffff;
+  --lms-red: #d90429;
+  --lms-border: #e2e8f0;
+  --lms-bg: #f8fafc;
+  --lms-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* --- Layout Architecture --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
-  color: var(--text-main);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Fixes full window */
+  background-color: var(--lms-bg);
+  color: var(--lms-black);
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.6;
+  padding: 40px 20px;
 }
-.app-container {
-  width: 95vw;
-  height: 90vh;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--border-radius);
-  display: grid;
-  grid-template-columns: 260px 1fr; /* Sidebar + Content */
-  box-shadow: var(--shadow);
+
+/* --- THE MAIN STATION: DATA CHASSIS --- */
+.home-container, .page-wrapper, .database-wrapper, .hoc-container, .remove-wrapper {
+  background: var(--lms-white);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px;
+  border-radius: 2px;
+  box-shadow: var(--lms-shadow);
+  border: 1px solid var(--lms-border);
+  position: relative;
   overflow: hidden;
 }
 
-/* Sidebar Styles */
-.sidebar {
-  background: rgba(255, 255, 255, 0.4);
-  padding: 40px 20px;
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.nav-item {
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: var(--transition);
-  color: var(--text-muted);
-}
-
-.nav-item:hover, .nav-item.active {
-  background: var(--accent-color);
+/* Industrial LMS ID Tag (Moveable Corner Decor) */
+.home-container::before {
+  content: "CORE_LMS_MODULE_01";
+  position: absolute;
+  top: 0; right: 0;
+  background: var(--lms-black);
   color: white;
-  transform: translateX(5px);
+  padding: 8px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-/* Main Content Wrapper */
-.main-window {
-  padding: 40px;
-  overflow-y: auto;
-  background: rgba(255, 255, 255, 0.2);
+/* --- TYPOGRAPHY: EDITORIAL IMPACT --- */
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+  color: var(--lms-black);
+  border-left: 12px solid var(--lms-red);
+  padding-left: 30px;
 }
-/* Card Container */
-.form-card {
-  max-width: 500px;
-  background: white;
+
+h1 span {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--lms-red);
+}
+
+/* --- KINETIC ACTION CONTROLS --- */
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--lms-border);
+  border: 1px solid var(--lms-border);
+  margin-top: 40px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  background: var(--lms-white);
   padding: 30px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--ease-out-expo) 0.4s;
 }
 
-.form-card h2 {
-  margin-bottom: 25px;
-  font-size: 1.5rem;
-  color: var(--accent-color);
+button::after {
+  content: "→";
+  font-size: 1.2rem;
+  opacity: 0.2;
+  transition: 0.3s;
 }
 
-/* Styled Inputs */
+button:hover {
+  background: var(--lms-black);
+  color: var(--lms-white);
+}
+
+button:hover::after {
+  opacity: 1;
+  transform: translateX(10px);
+}
+
+/* --- TABLE: ARCHIVAL DATA GRID --- */
+.vook-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 50px;
+}
+
+.vook-table th {
+  background: var(--lms-bg);
+  color: #64748b;
+  text-align: left;
+  padding: 16px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--lms-black);
+}
+
+.vook-table td {
+  padding: 24px 16px;
+  border-bottom: 1px solid var(--lms-border);
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+/* Moveable Object: Row Interaction */
+.vook-table tr:hover td {
+  background: #fffafa;
+  border-bottom: 1px solid var(--lms-red);
+  cursor: pointer;
+}
+
+/* --- FORMS: DATA ENTRY SYSTEM --- */
+.vook-form {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+
 input {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 15px;
-  border: 2px solid #eee;
-  border-radius: 8px;
-  outline: none;
-  transition: var(--transition);
+  padding: 20px;
+  border: 1px solid var(--lms-border);
+  background: var(--lms-bg);
+  font-family: inherit;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  transition: border-color 0.3s, background 0.3s;
 }
 
 input:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  outline: none;
+  background: var(--lms-white);
+  border-color: var(--lms-red);
+  box-shadow: 0 0 0 4px rgba(217, 4, 41, 0.1);
 }
 
-/* Buttons */
-button {
-  padding: 12px 24px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
+/* --- THE KINETIC SCANNER (Moveable Status Bar) --- */
+.database-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: var(--lms-red);
+  animation: scanLMS 5s infinite var(--ease-out-expo);
+  z-index: 10;
 }
 
-button[type="submit"] {
-  background: var(--accent-color);
-  color: white;
-  width: 100%;
+@keyframes scanLMS {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(800px); opacity: 0; }
 }
 
-button[type="submit"]:hover {
-  filter: brightness(1.1);
-  transform: translateY(-2px);
+/* --- HOC LAYER: THE METADATA SCHEMATIC --- */
+.hoc-container {
+  background: #f1f5f9 !important;
+  border-top: 6px solid var(--lms-black) !important;
 }
-
-/* Table Style */
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 10px;
-}
-
-th {
-  text-align: left;
-  padding: 15px;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-td {
-  background: white;
-  padding: 15px;
-}
-
-td:first-child { border-radius: 10px 0 0 10px; }
-td:last-child { border-radius: 0 10px 10px 0; }

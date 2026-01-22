@@ -1,15 +1,37 @@
-import { useContext } from "react";
-import { StateContext } from "../context/contextProvider";
+// import { useContext } from "react";
+// import { StateContext } from "../context/contextProvider";
 
-import Database from "./Database";
-export const RemoveBook = () => {
-      const { setState } = useContext(StateContext);
+// import Database from "./Database";
+// export const RemoveBook = () => {
+//       const { setState } = useContext(StateContext);
       
     
-  return (<div>Remove Book Component
-   <Database />
-     <button onClick={() => setState("HOME")}>Go to Home</button>
-     <button onClick={()=>setState("DATABASE")}>Go to Database</button></div>);
+//   return (<div>Remove Book Component
+//    <Database />
+//      <button onClick={() => setState("HOME")}>Go to Home</button>
+//      <button onClick={()=>setState("DATABASE")}>Go to Database</button></div>);
+// };
+
+// export default RemoveBook;
+
+
+import React, { useContext } from "react";
+import { StateContext } from "../context/contextProvider";
+import Database from "./Database";
+
+const RemoveBook = () => {
+  const { setState } = useContext(StateContext);
+      
+  return (
+    <div className="remove-wrapper">
+      <h2>Remove Book Component</h2>
+      <Database />
+      <div className="button-group">
+        <button className="btn-nav" onClick={() => setState("HOME")}>Go to Home</button>
+        <button className="btn-nav" onClick={() => setState("DATABASE")}>Go to Database</button>
+      </div>
+    </div>
+  );
 };
 
 export default RemoveBook;
