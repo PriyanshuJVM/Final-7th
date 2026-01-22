@@ -6,7 +6,7 @@ import AddBook from "./crud/Addvook";
 import UpdateBook from "./crud/UpdateBook";
 import RemoveBook from "./crud/RemoveBook";
 import Database from "./crud/Database";
-import Read_eBook from "./components/Read-eBook";
+import ReadeBook from "./components/ReadEbook";
 
 function App() {
   const [state, setState] = useState("HOME");
@@ -19,7 +19,7 @@ function App() {
         {state === "UPDATE_BOOK" && <UpdateBook />}
         {state === "REMOVE_BOOK" && <RemoveBook />}
         {state === "DATABASE" && <Database />}
-        {state === "READ_EBOOK" && <Read_eBook />}
+        {state === "READ_EBOOK" && <ReadeBook />}
       </main>
     </StateContext.Provider>
   );
